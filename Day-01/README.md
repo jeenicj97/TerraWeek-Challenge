@@ -1,6 +1,6 @@
-# TerraWeek Day 1
+## TerraWeek Day 1
 
-## Day 1: Introduction to Terraform and Terraform Basics
+### Day 1: Introduction to Terraform and Terraform Basics
 
 - What is Terraform and how can it help you manage infrastructure as code?
 
