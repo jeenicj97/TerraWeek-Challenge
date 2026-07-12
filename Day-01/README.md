@@ -95,4 +95,36 @@
        
       Once the provider block is set and credentials are in place, running `terraform init` downloads the required provider plugins into a local `.terraform` directory.
 
-- Explain the important terminologies of Terraform with the example at least (5 crucial terminologies).
+4. Explain the important terminologies of Terraform with the example at least (5 crucial terminologies).
+
+      1. **Provider** A plugin that lets Terraform interact with a specific platform's API (Azure, AWS, GCP, Kubernetes, etc.)
+
+         ```hcl
+         provider "azurerm" {
+            features{}
+         }
+         ```
+      2. **Resource** The building block - represents a single infrastructure object Terraform manages (a VM, storage account, resource group, etc.)
+
+         ```hcl
+         resource "azurerm_resource_group" "rg" {
+            name = "terraweek-rg"
+            location = "East US"
+         }
+      3. **State** A JSON file(`terraform.tfstate`) that maps your configuration to real-world resources. Terraform uses this to know what already exists and what needs to change.
+      4. **Variables** Parameterize your configuration so it isn't hardcoded, making it resuable across environments.
+
+          ```hcl
+          variable "location" {
+             descritption = "Azure region"
+             type = string
+             default = "East US"
+          }
+
+          resource "azurerm_resource_group" "rg" {
+             name = "terraweek-rg"
+             location = var.location
+          }
+      5. **Plan/Apply/Destroy (the core workflow)**
+            * `terraform `
+         
