@@ -25,7 +25,7 @@
 
 3. How can you install Terraform and set up the environment for AWS, Azure, or GCP?
 
-      ### Installing Terraform (Linux/WSL2 — Ubuntu)
+      #### Installing Terraform (Linux/WSL2 — Ubuntu)
        
       ```bash
       # Install dependencies
@@ -44,7 +44,7 @@
       terraform -version
       ```
        
-      ### Setting up provider authentication
+      #### Setting up provider authentication
        
       **Azure:**
       ```bash
@@ -125,6 +125,11 @@
              name = "terraweek-rg"
              location = var.location
           }
+          
       5. **Plan/Apply/Destroy (the core workflow)**
-            * `terraform `
+         
+            * `terraform init` --  initializes a working directory containing Terraform configuration files
+            * `terraform plan` -- shows what changes will be made (add/change/destroy) without touching real infrastructure
+            * `terraform apply` -- executes the plan and provisions the actual resources
+            * `terraform destroy` -- tears down everything Terraform is managing in that state.
          
