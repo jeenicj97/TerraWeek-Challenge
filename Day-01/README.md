@@ -23,6 +23,76 @@
     * In short, Terraform transforms infrastructure managemnet from manual operations to automated, auditable workflows.
      
 
-- How can you install Terraform and set up the environment for AWS, Azure, or GCP?
+3. How can you install Terraform and set up the environment for AWS, Azure, or GCP?
+
+      ### Installing Terraform (Linux/WSL2 — Ubuntu)
+       
+      ```bash
+      # Install dependencies
+      sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+       
+      # Add HashiCorp GPG key
+      curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+       
+      # Add HashiCorp repo
+      echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+       
+      # Install
+      sudo apt-get update && sudo apt-get install terraform
+       
+      # Verify
+      terraform -version
+      ```
+       
+      ### Setting up provider authentication
+       
+      **Azure:**
+      ```bash
+      # Install Azure CLI, then log in
+      az login
+       
+      # Terraform's azurerm provider picks up credentials automatically
+      # via the Azure CLI session
+      ```
+       
+      ```hcl
+      terraform {
+        required_providers {
+          azurerm = {
+            source  = "hashicorp/azurerm"
+            version = "~> 3.0"
+          }
+        }
+      }
+       
+      provider "azurerm" {
+        features {}
+      }
+      ```
+       
+      **AWS:**
+      ```bash
+      # Install AWS CLI, then configure credentials
+      aws configure
+      ```
+      ```hcl
+      provider "aws" {
+        region = "us-east-1"
+      }
+      ```
+       
+      **GCP:**
+      ```bash
+      # Install gcloud CLI, then authenticate
+      gcloud auth application-default login
+      ```
+      ```hcl
+      provider "google" {
+        project = "my-project-id"
+        region  = "us-central1"
+      }
+      ```
+       
+      Once the provider block is set and credentials are in place, running `terraform init` downloads the required provider plugins into a local `.terraform` directory.
 
 - Explain the important terminologies of Terraform with the example at least (5 crucial terminologies).
