@@ -205,13 +205,121 @@ Changes to Outputs:
   + pet_name  = (known after apply)
 
 # terraform apply
-# paste output here
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ terraform apply
+
+Terraform used the selected providers to generate the following
+execution plan. Resource actions are indicated with the following
+symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # local_file.greeting will be created
+  + resource "local_file" "greeting" {
+      + content              = (known after apply)
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./greeting.txt"
+      + id                   = (known after apply)
+    }
+
+  # random_pet.name will be created
+  + resource "random_pet" "name" {
+      + id        = (known after apply)
+      + length    = 2
+      + separator = "-"
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + file_path = "./greeting.txt"
+  + pet_name  = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+random_pet.name: Creating...
+random_pet.name: Creation complete after 0s [id=growing-bull]
+local_file.greeting: Creating...
+local_file.greeting: Creation complete after 0s [id=436c0e46caf12448b0027ec0246bef8823833753]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+file_path = "./greeting.txt"
+pet_name = "growing-bull"
 
 # cat greeting.txt
-# paste output here
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ cat greeting.txt
+Hello from TerraWeek 2026! 🚀
+Your infra pet name is: growing-bull
 
 # terraform destroy
-# paste output here
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ terraform destroy
+random_pet.name: Refreshing state... [id=growing-bull]
+local_file.greeting: Refreshing state... [id=436c0e46caf12448b0027ec0246bef8823833753]
+
+Terraform used the selected providers to generate the following
+execution plan. Resource actions are indicated with the following
+symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # local_file.greeting will be destroyed
+  - resource "local_file" "greeting" {
+      - content              = <<-EOT
+            Hello from TerraWeek 2026! 🚀
+            Your infra pet name is: growing-bull
+        EOT -> null
+      - content_base64sha256 = "q2Z/xuHcOm7HcsIBm2tRMjxnaijfdhDFDDZSQnoKa4Q=" -> null
+      - content_base64sha512 = "FWuQsVzQRacUR4bZpv1qPpwfckemlYdIJXj3hrOUQkeYaRR1J9j2exxfpYMQxFkheRHVfv2wNInFITH1NaTw7g==" -> null
+      - content_md5          = "8b401fc34c092949983d0cf8b045ab5d" -> null
+      - content_sha1         = "436c0e46caf12448b0027ec0246bef8823833753" -> null
+      - content_sha256       = "ab667fc6e1dc3a6ec772c2019b6b51323c676a28df7610c50c3652427a0a6b84" -> null
+      - content_sha512       = "156b90b15cd045a7144786d9a6fd6a3e9c1f7247a69587482578f786b39442479869147527d8f67b1c5fa58310c459217911d57efdb03489c52131f535a4f0ee" -> null
+      - directory_permission = "0777" -> null
+      - file_permission      = "0777" -> null
+      - filename             = "./greeting.txt" -> null
+      - id                   = "436c0e46caf12448b0027ec0246bef8823833753" -> null
+    }
+
+  # random_pet.name will be destroyed
+  - resource "random_pet" "name" {
+      - id        = "growing-bull" -> null
+      - length    = 2 -> null
+      - separator = "-" -> null
+    }
+
+Plan: 0 to add, 0 to change, 2 to destroy.
+
+Changes to Outputs:
+  - file_path = "./greeting.txt" -> null
+  - pet_name  = "growing-bull" -> null
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+local_file.greeting: Destroying... [id=436c0e46caf12448b0027ec0246bef8823833753]
+local_file.greeting: Destruction complete after 0s
+random_pet.name: Destroying... [id=growing-bull]
+random_pet.name: Destruction complete after 0s
+
+Destroy complete! Resources: 2 destroyed.
 ```
 
 ---
