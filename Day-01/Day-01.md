@@ -331,11 +331,20 @@ Destroy complete! Resources: 2 destroyed.
 terraform -install-autocomplete
 ```
 
+> Tab completion means when you type terraform and press Tab, the terminal automatically suggests or completes the command for you.
+
 ### .terraform.lock.hcl — what is it?
 - Created automatically after `terraform init`
 - Records the exact version of each provider that was downloaded
 - Should be committed to Git so everyone on the team uses the same provider versions
 - Similar to `package-lock.json` in Node.js
+
+```bash
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ ls -a
+.           .terraform           terraform.tf
+..          .terraform.lock.hcl  terraform.tfstate
+.gitignore  main.tf              terraform.tfstate.backup
+```
 
 ### OpenTofu
 - Open-source fork of Terraform created in 2023
@@ -344,6 +353,101 @@ terraform -install-autocomplete
 - Commands are identical — `tofu init`, `tofu plan`, `tofu apply`
 - Differences are minimal right now but may grow over time
 
+### hands-on
+```bash
+
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ sudo snap install --classic opentofu
+opentofu 1.12.4 from OpenTofu Core Team✓ installed
+
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ tofu init
+Initializing the backend...
+Initializing provider plugins...
+- Reusing previous version of hashicorp/local from the dependency lock file
+- Reusing previous version of hashicorp/random from the dependency lock file
+- Using previously-installed hashicorp/local v2.9.0
+- Using previously-installed hashicorp/random v3.9.0
+OpenTofu has been successfully initialized!
+You may now begin working with OpenTofu. Try running "tofu plan" to see
+any changes that are required for your infrastructure. All OpenTofu commands
+should now work.
+If you ever set or change modules or backend configuration for OpenTofu,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ tofu plan
+random_pet.name: Refreshing state... [id=shining-polecat]
+local_file.greeting: Refreshing state... [id=0bfdff6eb1b05fd9e7e124ee22a8efa60d6e06a0]
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+OpenTofu will perform the following actions:
+  # local_file.greeting will be created
+  + resource "local_file" "greeting" {
+      + content              = <<-EOT
+            Hello from TerraWeek 2026! 🚀
+            Your infra pet name is: shining-polecat
+        EOT
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./greeting.txt"
+      + id                   = (known after apply)
+    }
+Plan: 1 to add, 0 to change, 0 to destroy.
+─────────────────────────────────────────────────────────────────────────────
+Note: You didn't use the -out option to save this plan, so OpenTofu can't
+guarantee to take exactly these actions if you run "tofu apply" now.
+
+
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ tofu apply
+random_pet.name: Refreshing state... [id=shining-polecat]
+local_file.greeting: Refreshing state... [id=0bfdff6eb1b05fd9e7e124ee22a8efa60d6e06a0]
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+OpenTofu will perform the following actions:
+  # local_file.greeting will be created
+  + resource "local_file" "greeting" {
+      + content              = <<-EOT
+            Hello from TerraWeek 2026! 🚀
+            Your infra pet name is: shining-polecat
+        EOT
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./greeting.txt"
+      + id                   = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  OpenTofu will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+local_file.greeting: Creating...
+local_file.greeting: Creation complete after 0s [id=0bfdff6eb1b05fd9e7e124ee22a8efa60d6e06a0]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+file_path = "./greeting.txt"
+pet_name = "shining-polecat"
+```
 ---
 
-*Source: TerraWeek Challenge — Day 1*
+
