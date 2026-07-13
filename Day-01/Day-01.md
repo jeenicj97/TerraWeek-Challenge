@@ -1,0 +1,174 @@
+# Terraform — Week 1 Notes
+
+---
+
+## Task 1: Understanding IaC & Terraform
+
+### What is Infrastructure as Code (IaC)?
+
+IaC means writing code to create and manage infrastructure instead of manually clicking through a cloud console.
+
+**Problems it solves:**
+
+| Without IaC (ClickOps) | With IaC |
+|---|---|
+| Manual steps, easy to make mistakes | Automated, consistent every time |
+| Hard to repeat the same setup | Run the same code anywhere |
+| No record of what changed | Git tracks every change |
+| Only one person knows how it was set up | Anyone can read the code |
+
+---
+
+### What is Terraform and why is it popular?
+
+Terraform is an open-source tool by HashiCorp that lets you create and manage infrastructure using code.
+
+**Why everyone uses it:**
+
+- **Declarative** — you say *what* you want, Terraform figures out *how* to do it
+- **Provider-agnostic** — works with AWS, Azure, GCP, Kubernetes and 1000+ more
+- **Plan before apply** — shows you exactly what will change before doing anything
+- **State management** — keeps track of what it created so it knows what to update or delete
+- **Huge ecosystem** — thousands of ready-made modules on Terraform Registry
+
+---
+
+### Terraform vs Alternatives
+
+| Tool | Comparison |
+|---|---|
+| **OpenTofu** | Open-source fork of Terraform — almost identical, community-driven |
+| **Pulumi** | Like Terraform but you write in Python/TypeScript instead of HCL |
+| **CloudFormation** | AWS only — works great on AWS but locked to one cloud |
+| **Ansible** | Configures existing servers (installs software etc), doesn't provision infrastructure |
+
+> Terraform builds the house. Ansible furnishes it. Kubernetes runs apps inside it.
+
+---
+
+## Task 2: Install Terraform
+
+```bash
+# verify install
+terraform version
+terraform -help
+```
+
+**Output:**
+```
+# paste your output here after running
+```
+
+> Also install the **HashiCorp Terraform** extension in VS Code for syntax highlighting and autocomplete.
+
+---
+
+## Task 3: 6 Key Terraform Terminologies
+
+### 1. Provider
+A plugin that tells Terraform which platform to talk to.
+```hcl
+provider "azurerm" {
+  features {}
+}
+```
+
+### 2. Resource
+A piece of infrastructure you want to create.
+```hcl
+resource "azurerm_resource_group" "rg" {
+  name     = "my-rg"
+  location = "East US"
+}
+```
+
+### 3. State
+Terraform's record of what it created — stored in `terraform.tfstate`.
+Terraform reads this file to know what already exists and what needs to change.
+
+### 4. Plan
+A preview of what Terraform will do before it does anything.
+```bash
+terraform plan
+# shows: what will be created (+), updated (~), or destroyed (-)
+```
+
+### 5. HCL
+HashiCorp Configuration Language — the syntax you write Terraform files in.
+Human-readable, looks like JSON but cleaner.
+
+### 6. Module
+A reusable group of Terraform files packaged together.
+Instead of writing the same AKS config every project, use a module once.
+```hcl
+module "aks" {
+  source = "Azure/aks/azurerm"
+}
+```
+
+---
+
+## Task 4: Core Terraform Workflow
+
+### The Workflow
+
+```
+Write  ──▶  Init  ──▶  Plan  ──▶  Apply  ──▶  Destroy
+(.tf)      (setup)   (preview)  (create)   (clean up)
+```
+
+### Commands and what they do
+
+```bash
+terraform init      # downloads providers, sets up working directory
+terraform fmt       # auto-formats your .tf files
+terraform validate  # checks for syntax errors
+terraform plan      # previews what will be created/changed/destroyed
+terraform apply     # actually creates the resources (type: yes)
+terraform destroy   # deletes everything Terraform created (type: yes)
+```
+
+### Output from hands-on run
+
+```bash
+# terraform init
+# paste output here
+
+# terraform plan
+# paste output here
+
+# terraform apply
+# paste output here
+
+# cat greeting.txt
+# paste output here
+
+# terraform destroy
+# paste output here
+```
+
+---
+
+## Bonus
+
+### Tab completion
+```bash
+terraform -install-autocomplete
+```
+
+### .terraform.lock.hcl — what is it?
+- Created automatically after `terraform init`
+- Records the exact version of each provider that was downloaded
+- Should be committed to Git so everyone on the team uses the same provider versions
+- Similar to `package-lock.json` in Node.js
+
+### OpenTofu
+- Open-source fork of Terraform created in 2023
+- HashiCorp changed Terraform's licence from open-source to BSL
+- OpenTofu kept the original open-source licence
+- Commands are identical — `tofu init`, `tofu plan`, `tofu apply`
+- Differences are minimal right now but may grow over time
+
+---
+
+*Source: TerraWeek Challenge — Day 1*
