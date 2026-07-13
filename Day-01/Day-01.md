@@ -162,9 +162,47 @@ you run "terraform init" in the future.
 
 Terraform has been successfully initialized!
 
+# terraform validate
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ terraform validate
+Success! The configuration is valid.
 
 # terraform plan
-# paste output here
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ terraform plan
+
+Terraform used the selected providers to generate the following
+execution plan. Resource actions are indicated with the following
+symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # local_file.greeting will be created
+  + resource "local_file" "greeting" {
+      + content              = (known after apply)
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./greeting.txt"
+      + id                   = (known after apply)
+    }
+
+  # random_pet.name will be created
+  + resource "random_pet" "name" {
+      + id        = (known after apply)
+      + length    = 2
+      + separator = "-"
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + file_path = "./greeting.txt"
+  + pet_name  = (known after apply)
 
 # terraform apply
 # paste output here
