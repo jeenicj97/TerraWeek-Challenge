@@ -52,6 +52,7 @@ Terraform is an open-source tool by HashiCorp that lets you create and manage in
 
 ## Task 2: Install Terraform
 
+**Output:**
 ```bash
 jeenicj@DESKTOP-BG3MAVI:/mnt/c/Users/Jeeni$ terraform version
 Terraform v1.15.8
@@ -71,13 +72,6 @@ Main commands:
   apply         Create or update infrastructure
   destroy       Destroy previously-created infrastructure
 ```
-
-**Output:**
-```
-# paste your output here after running
-```
-
-> Also install the **HashiCorp Terraform** extension in VS Code for syntax highlighting and autocomplete.
 
 ---
 
@@ -150,7 +144,24 @@ terraform destroy   # deletes everything Terraform created (type: yes)
 
 ```bash
 # terraform init
-# paste output here
+jeenicj@DESKTOP-BG3MAVI:~/terra-day1$ terraform init
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding hashicorp/local versions matching "~> 2.5"...
+- Finding hashicorp/random versions matching "~> 3.7"...
+- Installing hashicorp/local v2.9.0...
+- Installed hashicorp/local v2.9.0 (signed by HashiCorp)
+- Installing hashicorp/random v3.9.0...
+- Installed hashicorp/random v3.9.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
 
 # terraform plan
 # paste output here
