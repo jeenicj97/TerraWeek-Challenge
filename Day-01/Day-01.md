@@ -1,4 +1,8 @@
-# Terraform — Week 1 Notes
+# 🌱 TerraWeek Day 1 — Introduction to IaC & Terraform Basics
+
+**Date:** Sunday, 12th July 2026
+
+Welcome to **Day 1** of the TerraWeek Challenge! Today is all about **foundations** — understanding *why* Infrastructure as Code exists, installing the **latest Terraform (v1.15.x)**, and running your very first `terraform apply`. 🚀
 
 ---
 
@@ -49,9 +53,23 @@ Terraform is an open-source tool by HashiCorp that lets you create and manage in
 ## Task 2: Install Terraform
 
 ```bash
-# verify install
-terraform version
-terraform -help
+jeenicj@DESKTOP-BG3MAVI:/mnt/c/Users/Jeeni$ terraform version
+Terraform v1.15.8
+on linux_amd64
+
+jeenicj@DESKTOP-BG3MAVI:/mnt/c/Users/Jeeni$ terraform -help
+Usage: terraform [global options] <subcommand> [args]
+
+The available commands for execution are listed below.
+The primary workflow commands are given first, followed by
+less common or more advanced commands.
+
+Main commands:
+  init          Prepare your working directory for other commands
+  validate      Check whether the configuration is valid
+  plan          Show changes required by the current configuration
+  apply         Create or update infrastructure
+  destroy       Destroy previously-created infrastructure
 ```
 
 **Output:**
