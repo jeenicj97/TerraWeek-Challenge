@@ -1,4 +1,4 @@
-# 🌱 TerraWeek Day 1 — Introduction to IaC & Terraform Basics
+## 🌱 TerraWeek Day 1 -Introduction to IaC & Terraform Basics
 
 **Date:** Sunday, 12th July 2026
 
