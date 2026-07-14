@@ -2,7 +2,6 @@
 
 **Date:** Monday, 13th July 2026
 
-### Yesterday you ran your first `apply`. Today you'll learn the **language** behind it — **HCL (HashiCorp Configuration Language)** — so your configs become flexible, reusable, and readable. ✍️
 ---
 
 ### Task 1: HCL Syntax
