@@ -388,11 +388,17 @@ variable "app_config" {
 ## Output from hands-on run
 
 ```bash
-# paste your terraform init output here
-# paste your terraform plan output here
-# paste your terraform apply output here
-# paste your terraform output here
-# paste your terraform destroy output here
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+access_url = "http://localhost:8080"
+container_name = "tws-dev-terraweek-web"
+image = "nginx:1.27-alpine"
+jeenicj@DESKTOP-BG3MAVI:~/terra-prac$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS                 PORTS                       NAMES
+db48cfce7da8   6769dc3a703c           "/docker-entrypoint.…"   27 seconds ago   Up 26 seconds          0.0.0.0:8080->80/tcp        tws-dev-terraweek-web
 ```
 
 ---
