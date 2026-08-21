@@ -1,19 +1,5 @@
 # 🚀 TerraWeek Day 6 — Advanced Terraform + Capstone Project
 
-**Date:** Friday, 17th July 2026
-
-The finale! 🎉 Today you'll level up with **workspaces**, the native **`terraform test`** framework, **security scanning**, **CI/CD**, and **best practices** — then tie everything together in a **Capstone Project** you can show off in interviews.
-
----
-
-## 🎯 Learning Goals
-
-- Manage multiple environments with **workspaces**.
-- Automatically **format, validate, and test** Terraform (`fmt`, `validate`, `test`).
-- **Scan for security issues** before you apply.
-- Automate Terraform in **CI/CD** (GitHub Actions).
-- Know the **production best practices** — and prove them in a capstone.
-
 ---
 
 ## 📝 Tasks
@@ -120,17 +106,3 @@ Two production-grade blueprints to study and adapt — don't just copy, **unders
 
 ---
 
-## 📤 What to Submit (Final!)
-- A blog / LinkedIn / X post with your **capstone architecture**, code repo link, and demo screenshots.
-- Your complete **GitHub repo** for the whole week.
-- Tag **#TrainWithShubham #TerraWeekChallenge**, tag **[@Shubham Londhe](https://www.linkedin.com/in/shubhamlondhe1996/)**, and share with your network.
-
-> 🎓 Completed all 6 days + learned in public? You've earned your **Python For DevOps [AI Powered] Cohort** access — and a shot at the **Top 3** prize! 🏆
-
----
-
-📺 **Companion video:** [Terraform In One Shot](https://youtu.be/S9mohJI_R34) (Project 3 — EKS + testing & best practices)
-💻 **Companion code:** [`examples/terraform_test/`](https://github.com/LondheShubham153/terraform-for-devops/tree/main/examples/terraform_test) · [`eks/`](https://github.com/LondheShubham153/terraform-for-devops/tree/main/eks) · [Testing docs](https://developer.hashicorp.com/terraform/language/tests) · [Best Practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices)
-💬 Questions? [Discord](https://discord.gg/hs3Pmc5F) / [Telegram](https://t.me/trainwithshubham).
-
-### 🎉 Congratulations on completing the TWS TerraWeek Challenge 2026! Happy Terraforming! 🌍💻
