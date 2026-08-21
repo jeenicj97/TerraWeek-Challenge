@@ -1,19 +1,5 @@
 # 📦 TerraWeek Day 5 — Modules: Reusable, Composable Infrastructure
 
-**Date:** Thursday, 16th July 2026
-
-Copy-pasting `.tf` blocks doesn't scale. **Modules** let you package infrastructure once and reuse it everywhere — across environments, teams, and projects. Today you'll **write your own module**, **consume registry modules**, and learn **versioning**. ♻️
-
----
-
-## 🎯 Learning Goals
-
-- Understand **what modules are** and why they're the backbone of scalable Terraform.
-- Understand the **root module** vs **child modules**.
-- Write a **local module** with clear **inputs (variables)** and **outputs**.
-- Consume modules from the **Terraform Registry** and **Git**, and **pin versions**.
-- Use **`for_each`** to instantiate a module multiple times.
-
 ---
 
 ## 📝 Tasks
@@ -101,21 +87,3 @@ Explain why **pinning matters** (reproducible builds, no surprise breaking chang
 
 ---
 
-## 🍫 Bonus (Brownie Points)
-- Add a **`README.md`** and input **validation** to your module.
-- Publish your module to your **own GitHub** and consume it via a `git::` source + `?ref=` tag.
-- Explore **module composition**: pass one module's output as another module's input.
-
----
-
-## 📤 What to Submit
-- Blog / LinkedIn / X post: your module structure, the root config calling it, and `terraform plan` showing multiple instances via `for_each`.
-- Push to your GitHub repo. Tag **#TrainWithShubham #TerraWeekChallenge**.
-
----
-
-📺 **Companion video:** [Terraform In One Shot](https://youtu.be/S9mohJI_R34) (Project 2 — reusable multi-env module)
-💻 **Companion code:** [`aws_module_project/`](https://github.com/LondheShubham153/terraform-for-devops/tree/main/aws_module_project) · [Modules docs](https://developer.hashicorp.com/terraform/language/modules) · [Terraform Registry](https://registry.terraform.io/)
-💬 Questions? [Discord](https://discord.gg/hs3Pmc5F) / [Telegram](https://t.me/trainwithshubham).
-
-### Happy Terraforming! 🌍💻
